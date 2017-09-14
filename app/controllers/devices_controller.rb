@@ -28,11 +28,11 @@ class DevicesController < ApplicationController
     end
   end
 
-  # def destroy
-  #   device = Device.find(params[:id])
-  #   device.destroy
-  #   render json: { status:'SUCCESS', message: 'Deleted device', data:category }, status: :ok
-  # end
+  def destroy
+    device = Device.find(params[:id])
+    device.destroy
+    render json: { status:'SUCCESS', message: 'Deleted device', data:device }, status: :ok
+  end
 
   private
 
