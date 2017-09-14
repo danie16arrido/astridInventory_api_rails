@@ -1,13 +1,8 @@
 class CategoriesController < ApplicationController
-  
+
   def index
     categories = Category.all
     render json: { status:'SUCCESS', message: 'Loaded categories', data:categories }, status: :ok
-  end
-
-  def show
-    category = Category.find(params[:id])
-    render json: { status:'SUCCESS', message: 'Loaded category', data:category }, status: :ok
   end
 
   def create
@@ -19,10 +14,9 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def destroy
+  def show
     category = Category.find(params[:id])
-    category.destroy
-    render json: { status:'SUCCESS', message: 'Deleted category', data:category }, status: :ok
+    render json: { status:'SUCCESS', message: 'Loaded category', data:category }, status: :ok
   end
 
   def update
@@ -33,6 +27,14 @@ class CategoriesController < ApplicationController
       render json: { status:'ERROR', message: 'Category not updated', data:category.errors }, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    category = Category.find(params[:id])
+    category.destroy
+    render json: { status:'SUCCESS', message: 'Deleted category', data:category }, status: :ok
+  end
+
+
 
   private
 

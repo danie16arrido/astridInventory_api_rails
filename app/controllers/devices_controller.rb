@@ -14,6 +14,11 @@ class DevicesController < ApplicationController
     end
   end
 
+  def show
+    device = Device.find(params[:id])
+    render json: { status:'SUCCESS', message: 'Loaded device', data:device }, status: :ok
+  end
+
   private
 
   def device_params
