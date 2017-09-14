@@ -19,6 +19,21 @@ class DevicesController < ApplicationController
     render json: { status:'SUCCESS', message: 'Loaded device', data:device }, status: :ok
   end
 
+  def update
+    device = Device.find(params[:id])
+    if device.update_attributes(device_params)
+      render json: { status:'SUCCESS', message: 'Updated device', data:device }, status: :ok
+    else
+      render json: { status:'ERROR', message: 'Device not updated', data:device.errors }, status: :unprocessable_entity
+    end
+  end
+
+  # def destroy
+  #   device = Device.find(params[:id])
+  #   device.destroy
+  #   render json: { status:'SUCCESS', message: 'Deleted device', data:category }, status: :ok
+  # end
+
   private
 
   def device_params
