@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  expected: 2017-09-15 10:14:39
+  date_in: 2017-09-15 10:14:39
+  date_out: 2017-09-15 10:14:39
+  job: 1
+  device: one
+  provider: one
+
+two:
+  status: 1
+  expected: 2017-09-15 10:14:39
+  date_in: 2017-09-15 10:14:39
+  date_out: 2017-09-15 10:14:39
+  job: 1
+  device: two
+  provider: two
